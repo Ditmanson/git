@@ -150,4 +150,10 @@ Above we chained all 5 of our commands together into a single command. The `&&` 
 
 We have 2 commits now. Industry best practice wants us to squash these into one commit before merging. This helps with reviewing git logs and version control, you guessed it, both those topics are out of scope for this tutorial.
 
-To squash these commits run: `git commit HEAD~2`
+To squash these commits run: `git rebase -i HEAD~2`
+
+The command is saying you wan to make changes to the last 2 commits and opens an editor to allow you to edit the git history. The default editor is **vi** which is not the most user intuitive. You can pick a different editor inline by passing the environment variable GIT_EDITOR in line with the command. For example `GIT_EDITOR=nano git rebase -i HEAD~2` will use the text editor nano instead of default vi, if it is installed on your OS. If you are stuck using vi press `i` to put the editor in insert mode, then use your arrow keys to navigate around. 
+
+What we want to do is keep the top commit and squash the rest. So on line 2, change the word pick to squash. Then if using vi text editor, save by pressing `ESC :wq ENTER`
+
+
